@@ -1,0 +1,905 @@
+/* ================= ROOT SYSTEM ================= */
+:root {
+    --gold: #d4af37;
+    --dark: #111;
+    --text: #333;
+}
+
+/* ================= BASE ================= */
+body {
+    font-family: 'Montserrat', sans-serif;
+    padding-top: 80px;
+    margin: 0;
+    color: var(--text);
+    overflow-x: hidden;
+    background: linear-gradient(180deg, #0298fb, #015791);
+    min-height: 100vh;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* ================= GLOBAL FIX ================= */
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    height: auto;
+}
+
+section {
+    padding: 80px 0;
+}
+
+/* ================= HERO ================= */
+.hero-premium {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -70px;
+  background: url("/hero.jpg") center/cover no-repeat;
+}
+
+.hero-premium .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: none;
+}
+
+.hero-content {
+    position: relative;
+    color: #fff;
+    max-width: 700px;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+.hero-title span {
+    display: block;
+    margin-top: 10px;
+    font-size: 1.6rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+.subtitle {
+    color: #ddd;
+}
+
+.hero-title,
+.subtitle {
+  color: white;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+/* ================= GOLD EFFECT ================= */
+.gold-shimmer {
+    background: linear-gradient(
+        120deg,
+        #b8962e,
+        #ffd700,
+        #fff5b7,
+        #ffd700,
+        #b8962e
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+    0% { background-position: 200% center; }
+    100% { background-position: -200% center; }
+}
+
+/* ================= PRODUCT ================= */
+/* BORDER ELEGAN */
+.product-modern {
+    position: relative;
+    border-radius: 20px;
+    padding: 15px;
+    background: linear-gradient(135deg, #0ea5e9, #1e3a8a);
+    color: #fff;
+    z-index: 1;
+}
+
+/* BORDER GRADIENT */
+.product-modern::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 1px;
+
+    background: linear-gradient(45deg, #d4af37, #ffd700, #b8962e);
+
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+
+    z-index: -1;
+}
+
+#product-features {
+  list-style: none;
+  padding: 0;
+}
+
+#product-features li {
+  margin-bottom: 5px;
+}
+
+/* ================= PRODUCT IMAGE CENTER ================= */
+.product-img {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
+}
+
+/* BACKGROUND BIRU HALUS */
+.product-img::before {
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background: linear-gradient(135deg, #0ea5e9, #1e3a8a);
+    color: #fff;
+    border-radius: 20px;
+    z-index: 0;
+}
+
+/* GAMBAR DI ATAS BACKGROUND */
+.product-img img {
+    position: relative;
+    z-index: 1;
+    width: 70%;
+    max-width: 180px;
+    height: auto;
+    object-fit: contain;
+    transition: 0.4s;
+}
+
+/* TEXT JUDUL SECTION */
+.gold-emboss {
+  background: linear-gradient(135deg, #d4af37, #ffd700, #b8962e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShimmer 3s linear infinite;
+
+  text-shadow:
+    0 1px 0 #b8962e,
+    0 2px 2px rgba(0,0,0,0.25),
+    0 4px 6px rgba(0,0,0,0.2);
+}
+.gold-soft {
+  color: #f0f004;
+  opacity: 0.9;
+}
+
+.section-title {
+  font-size: 34px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.section-badge {
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+@keyframes goldShimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* HOVER EFFECT */
+.product-modern:hover .product-img img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    margin-top: 15px;
+}
+
+.product-info h5 {
+    font-weight: 500;
+}
+
+.price {
+    color: var(--gold);
+    font-weight: 600;
+}
+
+.desc {
+    font-size: 0.9rem;
+    color: #fffbfb;
+}
+
+.product-modern .btn {
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .product-modern {
+    margin-bottom: 25px;
+  }
+  #product .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  #product .col-12 {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* ================= BUTTON ================= */
+.btn-dark,
+.btn-outline-light {
+    border-radius: 30px;
+    padding: 10px 25px;
+}
+
+/* ================= DETAIL BUTTON PULSE ================= */
+.btn-detail {
+  position: relative;
+  overflow: hidden;
+  animation: pulseDetail 1s infinite;
+  border-radius: 25px;
+  padding: 6px 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #ffd700;
+  border: 1px solid #ffd700;
+
+  transition: all 0.3s ease;
+}
+
+.btn-detail:hover {
+  background: linear-gradient(135deg, #d4af37, #ffd700);
+  color: #000;
+  transform: translateY(-2px);
+
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+@keyframes pulseDetail {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 215, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+  }
+}
+
+/* ================= CTA PREMIUM FINAL ================= */
+.cta {
+    position: relative;
+    background: linear-gradient(135deg, #0ea5e9, #1e3a8a);
+    color: #fff;
+    padding: 20px 5px;
+    overflow: hidden;
+}
+
+/* GLOW HALUS */
+.cta::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(212,175,55,0.15), transparent 70%);
+    top: -150px;
+    right: -150px;
+}
+
+/* BADGE */
+.cta-badge {
+    display: inline-block;
+    background: rgba(212,175,55,0.08);
+    color: #d4af37;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+}
+
+/* TITLE */
+.cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* SUBTEXT */
+.cta-sub {
+    color: #cbd5e1;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* BUTTON */
+.cta-btn {
+    background: #25D366;
+    color: #fff;
+    border-radius: 40px;
+    padding: 14px 36px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: 0.3s;
+    box-shadow: 0 8px 25px rgba(37,211,102,0.25);
+}
+
+/* HOVER */
+.cta-btn:hover {
+    background: #1ebe5d;
+    transform: translateY(-2px);
+}
+
+/* NOTE */
+.cta-note {
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+.cta-btn {
+    animation: softPulse 2s infinite;
+}
+
+.cta-title,
+.cta-sub,
+.cta-badge,
+.cta-note {
+  color: #fff;
+}
+
+@keyframes softPulse {
+    0% { box-shadow: 0 0 0 rgba(37,211,102,0.3); }
+    50% { box-shadow: 0 0 20px rgba(37,211,102,0.4); }
+    100% { box-shadow: 0 0 0 rgba(37,211,102,0.3); }
+}
+
+.cta {
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+/* ================= RATING STARS ================= */
+.stars {
+    color: #facc15;
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
+
+/* JUMLAH REVIEW */
+.rating-count {
+    color: #999;
+    font-size: 0.8rem;
+    margin-left: 5px;
+}
+
+/* ================= REVIEW SECTION ================= */
+.review-section {
+    background: #027cf6;
+}
+
+/* CARD */
+.review-card {
+    background: linear-gradient(135deg, #0ea5e9, #4267ed);
+    color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: left;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+/* HOVER */
+.review-card:hover {
+    transform: translateY(-5px);
+}
+
+/* STARS */
+.review-card .stars {
+    color: #facc15;
+    margin-bottom: 10px;
+}
+
+/* TEXT */
+.review-card p {
+    font-size: 0.95rem;
+    color: #faf6f6;
+}
+
+/* NAME */
+.review-card h6 {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #010109;
+}
+
+.review-card {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.review-card.show {
+    opacity: 1;
+    transform: translateY(0);
+    transition: 0.6s;
+}
+
+.section-header {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1s ease forwards;
+}
+
+/* === JARAK ANTAR REVIEW === */
+.review-card {
+    margin-bottom: 20px;
+}
+.review-section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* GLOW HALUS DI BACKGROUND */
+#product::before {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(212,175,55,0.08), transparent 70%);
+    top: -100px;
+    right: -100px;
+    z-index: 0;
+}
+
+#product {
+    position: relative;
+    overflow: hidden;
+}
+
+/* BACKGROUND HALUS REVIEW */
+.review-section {
+    background: linear-gradient(180deg, #0298fb, #015791);
+    min-height: 100vh;
+}
+
+/* ================= SCROLL DOWN ================= */
+.scroll-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 20px;
+    opacity: 0.7;
+    animation: bounce 1.5s infinite;
+
+    /* FIX */
+    max-width: 100%;
+    overflow: hidden;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, 10px); }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 576px) {
+
+    .hero-premium {
+        height: auto;
+        padding: 120px 20px 80px;
+    }
+
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-title span {
+        font-size: 1rem;
+    }
+
+    .hero-content .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .product-img img {
+        height: 180px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .product-img img {
+        height: 260px;
+    }
+}
+
+/* ================= FIX OVERFLOW ================= */
+html, body {
+    overflow-x: hidden;
+}
+
+/* STOP OVERFLOW TOTAL */
+html, body {
+    overflow-x: hidden;
+}
+
+/* AMANKAN SEMUA */
+* {
+    box-sizing: border-box;
+}
+
+/* GAMBAR SAFE */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* TAMBAHAN CSS LAINNYA */
+section {
+    padding: 80px 0;
+}
+
+/* ================= FOOTER PRO ================= */
+.footer {
+    background: linear-gradient(135deg, #0ea5e9, #1e3a8a);
+    color: #fff;
+    padding: 60px 20px 20px;
+    margin-top: 0;
+    padding-top: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* LOGO */
+.footer-logo {
+    font-family: 'Playfair Display', serif;
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* DESKRIPSI */
+.footer-desc {
+    font-size: 0.9rem;
+    color: #94a3b8;
+}
+
+/* TITLE */
+.footer-title {
+    color: #fff;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+/* LINK */
+.footer-link {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-link li {
+    margin-bottom: 6px;
+}
+
+.footer-link a {
+    text-decoration: none;
+    color: #94a3b8;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.footer-link a:hover {
+    color: #d4af37;
+}
+
+/* KONTAK */
+.footer-contact {
+    font-size: 0.9rem;
+    color: #94a3b8;
+}
+
+/* GARIS */
+.footer hr {
+    border-color: rgba(255,255,255,0.1);
+    margin: 30px 0;
+}
+
+/* COPYRIGHT */
+.footer-copy {
+    font-size: 0.8rem;
+    color: #64748b;
+}
+.footer::before {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(212,175,55,0.1), transparent 70%);
+    bottom: -100px;
+    left: -100px;
+}
+.footer {
+    position: relative;
+    overflow: hidden;
+}
+
+/* ================= NAVBAR PREMIUM ================= */
+.navbar {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+
+/* SHADOW HALUS */
+.navbar.scrolled {
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+/* LOGO */
+.brand-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    color: #111 !important;
+}
+
+/* GOLD PART */
+.brand-logo span {
+    color: #d4af37;
+    text-shadow: 0 0 10px rgba(212,175,55,0.3);
+}
+
+/* MENU */
+.navbar-nav .nav-link {
+    font-size: 0.9rem;
+    color: #444 !important;
+    margin-left: 15px;
+    position: relative;
+    transition: 0.3s;
+    letter-spacing: 0.5px;
+}
+
+/* HOVER UNDERLINE */
+.navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: #d4af37;
+    left: 0;
+    bottom: -3px;
+    transition: 0.3s;
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 100%;
+}
+
+.navbar-nav .nav-link.active {
+  border-bottom: 2px solid #000;
+}
+
+/* ACTIVE / HOVER */
+.navbar-nav .nav-link:hover {
+    color: #000 !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ================= MARKETPLACE LINKS ================= */
+
+.marketplace-links {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+.market-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.3));
+}
+
+.market-icon:hover {
+  transform: scale(1.1);
+}
+
+/* NAVBAR*/
+.navbar.scrolled {
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.8) !important;
+}
+
+@media (max-width: 768px) {
+  .container.py-5 {
+    padding-top: 0 !important;
+  }
+
+  #product-img {
+    margin-bottom: 20px;
+    margin-top: -10px;
+    width: 100%;
+    border-radius: 18px;
+    background: linear-gradient(145deg, #f5f5f5, #ffffff);
+    padding: 10px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.15),
+        0 0 25px rgba(255, 215, 120, 0.15); /* glow gold halus */
+
+    transition: all 0.4s ease;
+  }
+
+  #product-img:hover {
+  transform: scale(1.03);
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.2),
+    0 0 35px rgba(255, 215, 120, 0.25); /* glow lebih terasa */
+}
+}
+
+.marketplace-wrapper {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+#contact {
+  padding-bottom: 20px !important;
+}
+
+.contact-info {
+  max-width: 300px;
+  margin: 0 auto;      /* bikin posisi di tengah */
+  text-align: left;    /* tapi teks rata kiri */
+  background: rgba(255,255,255,0.05);
+  padding: 15px 20px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.contact-info p {
+  margin-bottom: 6px;
+  font-size: 15px;
+  color: #eaeaea;
+}
+
+
+/* ================= GOLD TEXT FOOTER ================= */
+.gold-text {
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-family: 'Playfair Display', serif;
+
+  background: linear-gradient(
+    120deg,
+    #FFD700 20%,
+    #FFF3B0 40%,
+    #FFD700 60%
+  );
+
+  background-size: 200% auto;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.4),
+    0 2px 5px rgba(0,0,0,0.4),
+    0 0 15px rgba(255, 215, 0, 0.25);
+}
+
+/* ANIMASI SHIMMER */
+.shimmer {
+  animation: shimmerMove 3s linear infinite;
+}
+
+@keyframes shimmerMove {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* ============WHATSAPP BUTTON FIX================ */
+/* WARNA DASAR */
+.btn-wa {
+  background: #03bb65; /* hijau tua */
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 10;
+
+  transition: all 0.3s ease;
+}
+
+/* HOVER */
+.btn-wa:hover {
+  background: #15a863;
+  transform: translateY(-2px);
+}
+
+/* EFEK KEDIP (PULSE) */
+.btn-wa {
+  animation: pulseWA 1s infinite;
+}
+
+.btn-wa {
+  animation: pulseWA 1s infinite;
+  display: inline-block;
+  min-width: 220px;
+}
+
+
+
+@keyframes pulseWA {
+  0% {
+    box-shadow: 0 0 0 0 rgba(15, 81, 50, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(15, 81, 50, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(15, 81, 50, 0);
+  }
+}

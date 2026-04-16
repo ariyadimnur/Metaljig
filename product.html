@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Detail Produk</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+ <!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+<div class="container">
+
+<a class="navbar-brand brand-logo" href="index.html">
+    MJ <span>PRO</span>
+</a>
+
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarMenu">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link" href="index.html#product">Produk</a></li>
+<li class="nav-item"><a class="nav-link" href="index.html#contact">Kontak</a></li>
+</ul>
+</div>
+
+</div>
+</nav>
+<!-- NAVBAR END -->
+
+<div class="container py-5">
+
+<div class="row">
+
+<!-- GAMBAR -->
+<div class="col-md-6">
+<img id="product-img" class="img-fluid rounded shadow">
+</div>
+
+<!-- INFO -->
+<div class="col-md-6">
+<h2 id="product-name"></h2>
+<h4 class="price" id="product-price"></h4>
+
+
+
+<!=================== RATING, BADGE, REVIEW ================= ->
+
+<!-- RATING -->
+<div class="rating-box mt-4">
+<h5>Rating Produk</h5>
+
+<div class="d-flex align-items-center">
+<div class="stars">★★★★★</div>
+<span class="ms-2">4.9 / 5 (128 review)</span>
+</div>
+
+<div class="progress mt-2">
+<div class="progress-bar" style="width: 95%"></div>
+</div>
+
+</div>
+
+
+<!-- BADGE -->
+<div class="badge-best mt-3">🔥 Best Seller</div>
+
+
+<!-- REVIEW -->
+<div class="review-section mt-4">
+
+<h5>Review Pelanggan</h5>
+
+<div class="review-item">
+<strong>Andi ⭐⭐⭐⭐⭐</strong>
+<p>Strike terus! kualitasnya beda dari yang lain 🔥</p>
+</div>
+
+<div class="review-item">
+<strong>Budi ⭐⭐⭐⭐⭐</strong>
+<p>Lempar jauh, gerakan di air hidup banget</p>
+</div>
+
+<div class="review-item">
+<strong>Rudi ⭐⭐⭐⭐</strong>
+<p>Worth it, cocok buat laut dalam</p>
+</div>
+
+</div>
+<div class="d-flex justify-content-center">
+
+  <a href="https://wa.me/628987074600?text=Halo%20saya%20mau%20order%20MJ%20Pro" 
+     target="_blank"
+     id="btn-wa" 
+     class="btn btn-wa mt-3">
+    💬 WhatsApp
+  </a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
+// DATABASE PRODUK (SEMUA DI SINI)
+const products = {
+  40: {
+    name: "MJ 40G",
+    price: 85000,
+    img: "/jig40.png",
+    desc: "Metal Jig ringan untuk casting jarak jauh dan air dangkal.",
+    features: [
+      "Ringan & stabil",
+      "Gerakan natural",
+      "Cocok pemula & pro"
+    ],
+    rating: "4.8 / 5 (513 review)",
+    badge: "🔥 Best Seller"
+  },
+
+  60: {
+    name: "MJ 60G",
+    price: 110000,
+    img: "/jig60.png",
+    desc: "Sink lebih cepat, cocok untuk arus sedang & mid-depth.",
+    features: [
+      "Sink rate cepat",
+      "Stabil di arus",
+      "Cocok jigging menengah"
+    ],
+    rating: "4.9 / 5 (313 review)",
+    badge: "⚡ Fast Strike"
+  },
+
+  80: {
+    name: "MJ 80G",
+    price: 135000,
+    img: "/jig80.png",
+    desc: "Heavy jig untuk laut dalam & arus kuat.",
+    features: [
+      "Untuk deep sea",
+      "Tahan arus kuat",
+      "Strike power tinggi"
+    ],
+    rating: "5.0 / 5 (1K review)",
+    badge: "💎 Premium"
+  }
+};
+
+// AMBIL PRODUK
+const product = products[id];
+
+// VALIDASI
+if (!product) {
+  document.body.innerHTML = "<h2 class='text-center mt-5'>Produk tidak ditemukan</h2>";
+}
+
+// TAMPILKAN DATA
+document.getElementById("product-name").innerText = product.name;
+document.getElementById("product-price").innerText = "Rp " + product.price.toLocaleString();
+document.getElementById("product-img").src = product.img;
+
+// DESKRIPSI
+document.querySelector(".mt-3").innerText = product.desc;
+
+// FITUR
+const ul = document.getElementById("product-features");
+ul.innerHTML = "";
+product.features.forEach(f => {
+  ul.innerHTML += `<li>✔ ${f}</li>`;
+});
+
+// RATING
+document.querySelector(".rating-box span").innerText = product.rating;
+
+// BADGE
+document.querySelector(".badge-best").innerText = product.badge;
+
+// WA LINK
+const text = `Halo, saya ingin order ${product.name} (Rp ${product.price})`;
+document.getElementById("btn-wa").href =
+"https://wa.me/628XXXXXXXXXX?text=" + encodeURIComponent(text);
+</script>
+
+<!====== Navbar =========================== >
+<script>
+document.querySelectorAll(".nav-link").forEach(link => {
+  link.addEventListener("click", () => {
+    const nav = document.querySelector(".navbar-collapse");
+    if (nav.classList.contains("show")) {
+      new bootstrap.Collapse(nav).hide();
+    }
+  });
+});
+</script>
+
+<footer class="footer mt-5">
+<div class="container">
+    <div class="text-center footer-copy gold-text shimmer">
+        © 2026 MJ PRO. All rights reserved
+        <br>
+        Dibuat dengan ❤️ oleh Ariyadi Indonesia
+        </div>
+        </div>
+        </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
